@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>ru.euj3ne.e3spawn</groupId>
-    <artifactId>e3spawn</artifactId>
+    <groupId>ru.euj3ne.e3setspawn</groupId>
+    <artifactId>E3SetSpawnMain</artifactId>
     <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>E3Spawn</name>
+    <name>E3SetSpawn</name>
     <description>None.</description>
     <url>https://plugins.euj3ne.ru</url>
 
@@ -106,6 +106,40 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- Maven javadoc plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.6.3</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Maven shade plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+ 
         </plugins>
     </build>
 </project>
